@@ -1,7 +1,3 @@
-Sure! Here's the English translation of your document:
-
----
-
 # Grafana Dashboards for DevLake
 
 This folder contains Grafana dashboards used to display data collected by [Apache DevLake](https://devlake.apache.org/). These dashboards provide essential insights into projects and help identify issues and opportunities for improvement.
