@@ -1,33 +1,36 @@
-# Dashboards do Grafana para DevLake
+Sure! Here's the English translation of your document:
 
-Esta pasta contém dashboards do Grafana utilizados para a exibição dos dados coletados no [Apache DevLake](https://devlake.apache.org/). Esses dashboards fornecem insights essenciais sobre os projetos e ajudam na identificação de problemas e oportunidades de melhoria.
+---
 
-## Estrutura do Repositório
+# Grafana Dashboards for DevLake
 
-Os arquivos JSON contidos nesta pasta correspondem a dashboards pré-configurados do Grafana. Esses dashboards podem ser importados diretamente no Grafana para exibir visualizações dinâmicas dos dados do DevLake.
+This folder contains Grafana dashboards used to display data collected by [Apache DevLake](https://devlake.apache.org/). These dashboards provide essential insights into projects and help identify issues and opportunities for improvement.
 
-### Descrição dos Dashboards
+## Repository Structure
 
-- **Dashboard de Erros**: Apresenta erros encontrados no preenchimento de issues dentro do GitHub, como por exemplo: issues sem tipo, sem descrição ou sem assignees. Este painel ajuda a garantir que as issues sejam criadas corretamente, melhorando a qualidade dos dados.
+The JSON files in this folder correspond to pre-configured Grafana dashboards. These dashboards can be directly imported into Grafana to display dynamic visualizations of DevLake data.
 
-- **SonarQube**: Exibe dados coletados do [SonarQube](https://www.sonarqube.org/), uma ferramenta de análise de qualidade de código que detecta vulnerabilidades, bugs e problemas de manutenção no código-fonte dos projetos.
+### Dashboard Descriptions
 
-- **Throughput**: Exibe o throughput de issues dentro dos projetos do GitHub sob diferentes perspectivas para análise. O throughput é uma métrica essencial pois mede a quantidade de trabalho concluído dentro de um período, ajudando a avaliar a produtividade da equipe e identificar gargalos no processo de desenvolvimento.
+- **Error Dashboard**: Displays issues found in GitHub issue tracking, such as issues without type, description, or assignees. This panel helps ensure that issues are properly created, improving data quality.
 
-## Como Importar os Dashboards
+- **SonarQube**: Shows data collected from [SonarQube](https://www.sonarqube.org/), a code quality analysis tool that detects vulnerabilities, bugs, and maintainability issues in project source code.
 
-Para importar os dashboards no Grafana, siga os passos abaixo:
+- **Throughput**: Displays the throughput of issues in GitHub projects from different analytical perspectives. Throughput is an essential metric as it measures the amount of work completed within a given period, helping to assess team productivity and identify bottlenecks in the development process.
 
-1. Acesse o Grafana no seu navegador. O link padrão é `http://localhost:4000/grafana`.
-2. Realize login com suas credenciais.
-3. No menu lateral, clique em **Painéis de Controle** > **Novo** > **Importar**.
-4. Selecione o arquivo `.json` do dashboard desejado.
-5. Preencha as informações necessárias, como a fonte de dados.
-6. Clique em **Import** para concluir a importação.
+## How to Import Dashboards
 
-Agora seu dashboard está disponível para uso no seu ambiente Grafana.
+To import dashboards into Grafana, follow the steps below:
 
-## Personalização
+1. Open Grafana in your browser. The default link is `http://localhost:4000/grafana`.
+2. Log in with your credentials.
+3. In the side menu, click **Dashboards** > **New** > **Import**.
+4. Select the desired `.json` dashboard file.
+5. Fill in the required information, such as the data source.
+6. Click **Import** to complete the import.
 
-Você pode editar os dashboards diretamente no Grafana para atender melhor às necessidades do seu projeto. Modifique os painéis, ajuste as fontes de dados e crie novas visualizações conforme necessário.
+Your dashboard is now available for use in your Grafana environment.
 
+## Customization
+
+You can edit the dashboards directly in Grafana to better suit your project's needs. Modify panels, adjust data sources, and create new visualizations as needed.
