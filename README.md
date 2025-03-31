@@ -1,7 +1,3 @@
-Here’s the English translation of your **DevLake - Installation and Configuration Guide**:
-
----
-
 # DevLake - Installation and Configuration Guide
 
 ## Introduction
