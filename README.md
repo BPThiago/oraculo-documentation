@@ -102,6 +102,8 @@ In this repository we will use it to integrate different systems about keeping t
 
 We plan to integrate things such as Github repositories, JIRA, ..., with an AI, so the user will be capable to ask questions, about the workflow, through a chatbot and receive answers. 
 
+Access N8N at [`http://localhost:5678`](http://localhost:5678). 
+
 ### How it works
 
 For now, still in testing purposes, we're using DevLake as the source to populate the database (MySQL) so we can run testes, the execution flow goes like this:
