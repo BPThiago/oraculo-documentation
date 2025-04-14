@@ -12,6 +12,8 @@ Para este fim, planejamos integrar ferramentas como repositório do Github, JIRA
 
 **DevLake** é uma plataforma de engenharia de dados projetada para coletar, armazenar e analisar dados de desenvolvimento de software de diversas ferramentas.
 
+Acessível em: [localhost:4000](localhost:5678)
+
 ### MySQL
 
 Sistema de gerenciamento de banco de dados (SGBD) de código aberto, que permite armazenar e gerir dados estruturados.
@@ -24,11 +26,15 @@ Ferramenta de análise e visualização de dados de código aberto.
 
 Utilizado para visualizar os dados no **MySQL** populado pelo **DevLake**.
 
+Acessível em: [localhost:4000/grafana](localhost:5678)
+
 ### N8N
 
 [N8N](https://github.com/n8n-io/n8n) é uma plataforma de automação de fluxo de trabalho de código aberto que oferece às equipes técnicas a flexibilidade do código com a velocidade do no-code.
 
 Neste repositório, usaremos essa plataforma para integrar diferentes sistemas de monitoramento do fluxo de trabalho da equipe.
+
+Acessível em: [localhost:5678](localhost:5678)
 
 ## Requerimentos
 
@@ -95,7 +101,7 @@ Neste repositório, usaremos essa plataforma para integrar diferentes sistemas d
 
 6. Clique em **+ Add Data Scope**, selecione o repositório desejado, e clique em  **Save**.
 
-### Criando um proojeto
+### Criando um projeto
 
 1. No menu lateral, clique em **Projects** e logo após em **+ New Project**.  
 2. Insira o nome do projeto e clique em **Save**.  
@@ -130,9 +136,7 @@ Assim podendo tentar fazer com que o n8n, junto de um AI Agent, consiga fazer qu
 #### Supersimplificação do fluxo de execução:
 
    ![Fluxo de execução](./images/executional_flow_visualization.png)
-Access N8N at [`http://localhost:5678`](http://localhost:5678). 
 
-### How it works
 
 Desta forma, podemos conectar o n8n ao MySQL e fazer com que a AI Agent possa lidar com os dados. 
 
