@@ -40,8 +40,8 @@ Neste repositório, usaremos essa plataforma para integrar diferentes sistemas d
 1. Clone o repositório do DevLake:
 
    ```sh
-   git clone https://github.com/leds-org/leds-dashboard.git
-   cd leds-dashboard
+   git clone https://github.com/bedrohenr/oraculo.git
+   cd oraculo
    ```
 
 2. Configure as variáveis necessárias nos arquivos `docker-compose.yml` e `.env`.
@@ -130,6 +130,9 @@ Assim podendo tentar fazer com que o n8n, junto de um AI Agent, consiga fazer qu
 #### Supersimplificação do fluxo de execução:
 
    ![Fluxo de execução](./images/executional_flow_visualization.png)
+Access N8N at [`http://localhost:5678`](http://localhost:5678). 
+
+### How it works
 
 Desta forma, podemos conectar o n8n ao MySQL e fazer com que a AI Agent possa lidar com os dados. 
 
