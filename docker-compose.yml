@@ -8,10 +8,10 @@ services:
     ports:
       - 3306:3306
     environment:
-      MYSQL_ROOT_PASSWORD: "<ME_ALTERE>"  # Altere a senha
+      MYSQL_ROOT_PASSWORD: "123"
       MYSQL_DATABASE: lake
       MYSQL_USER: merico
-      MYSQL_PASSWORD: "<ME_ALTERE>"  # Altere a senha
+      MYSQL_PASSWORD: "123"
       TZ: UTC
     command: --character-set-server=utf8mb4
       --collation-server=utf8mb4_bin
@@ -25,11 +25,11 @@ services:
       - grafana-storage:/var/lib/grafana
     environment:
       GF_SERVER_ROOT_URL: "http://localhost:4000/grafana"
-      GF_USERS_DEFAULT_THEME: "light"
+      GF_USERS_DEFAULT_THEME: "dark"
       MYSQL_URL: mysql:3306
       MYSQL_DATABASE: lake
       MYSQL_USER: merico
-      MYSQL_PASSWORD: "<ME_ALTERE>"  # Altere a senha
+      MYSQL_PASSWORD: "123"
       TZ: UTC
     restart: always
     depends_on:
@@ -61,7 +61,7 @@ services:
       GRAFANA_ENDPOINT: grafana:3000
       TZ: UTC
       ADMIN_USER: devlake
-      ADMIN_PASS: "<ME_ALTERE>"  # Altere a senha
+      ADMIN_PASS: "123"
     depends_on:
       - devlake
 
