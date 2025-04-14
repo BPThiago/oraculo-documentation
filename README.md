@@ -1,124 +1,146 @@
-# DevLake - Installation and Configuration Guide
+# Oráculo
 
 ## Introduction
 
-**DevLake** is a data engineering platform designed to collect, store, and analyze software development data from various tools.
+Este projeto almeja desenvolver uma plataforma de chatbot para responder perguntas sobre o estado das tarefas de um time de desenvolvimento.
 
-This guide provides detailed instructions to set up and use DevLake in your local environment.
+Para este fim, planejamos integrar ferramentas como repositório do Github, JIRA... e utilizando uma IA para fazer queries SQL e retornar a resposta certa.
 
-## Requirements
+## Ferramentas
 
-- Docker and Docker Compose installed  
-- A **GitHub Access Token** (for GitHub integration)
+### DevLake
 
-## Installation
+**DevLake** é uma plataforma de engenharia de dados projetada para coletar, armazenar e analisar dados de desenvolvimento de software de diversas ferramentas.
 
-1. Clone the DevLake repository:
+### MySQL
+
+Sistema de gerenciamento de banco de dados (SGBD) de código aberto, que permite armazenar e gerir dados estruturados.
+
+Utilizado para armazenar os dados do **DevLake**.
+
+### Grafana
+
+Ferramenta de análise e visualização de dados de código aberto.
+
+Utilizado para visualizar os dados no **MySQL** populado pelo **DevLake**.
+
+### N8N
+
+[N8N](https://github.com/n8n-io/n8n) é uma plataforma de automação de fluxo de trabalho de código aberto que oferece às equipes técnicas a flexibilidade do código com a velocidade do no-code.
+
+Neste repositório, usaremos essa plataforma para integrar diferentes sistemas de monitoramento do fluxo de trabalho da equipe.
+
+## Requerimentos
+
+- Docker e Docker Compose instalados 
+- A **GitHub Access Token**, Token de acesso do Github para integração do mesmo.
+
+## Instalação
+
+1. Clone o repositório do DevLake:
 
    ```sh
    git clone https://github.com/leds-org/leds-dashboard.git
    cd leds-dashboard
    ```
 
-2. Configure the variables in `docker-compose.yml` and `.env` as needed.
+2. Configure as variáveis necessárias nos arquivos `docker-compose.yml` e `.env`.
 
-3. Generate the `ENCRYPTION_SECRET` using the following command:
+3. Gere o `ENCRYPTION_SECRET` executando o comando a seguir: 
 
    ```sh
    openssl rand -base64 2000 | tr -dc 'A-Z' | fold -w 128 | head -n 1
    ```
 
-4. Start DevLake by running:
+4. Inicie o projeto rodando o comando:
 
    ```sh
    docker-compose up -d
    ```
 
-   This will start all the containers (DevLake, ConfigUI, Nginx, MySQL, Grafana) needed to run the DevLake environment and N8n which will be used to integrate the AI to search on the MySQL database.
+   Isso iniciará todos os contêineres (DevLake, ConfigUI, Nginx, MySQL, Grafana) necessários para executar o ambiente DevLake e o N8n, que será usado para integrar a IA para pesquisar no banco de dados MySQL.
 
-5. Access the DevLake dashboard at [`http://localhost:4000`](http://localhost:4000).  
-   - Use the **username** and **password** configured in `docker-compose.yml` to log in.
+5. Acesse o Dashboard DevLake em [`http://localhost:4000`](http://localhost:4000).  
+   - Use o **username** e **password** configurados préviamente no arquivo  `docker-compose.yml` para prosseguir.
 
-6. Credentials
+## Credenciais
    - Devlake:
       - **Username**: devlake
       - **Password**: 123
    - MySQL
       - **Database**: lake
       - **Username**: merico
-      - **Password**: 123 
+      - **Password**: 123
+   - Grafana
+      - **Username**: admin
+      - **Password**: admin
 
-## Configuration and Integration
+## Configuração e Integração
 
-### Creating a GitHub Connection
+### Criando uma conexão GitHub
 
-1. In the side menu, click on **Connections**.  
-2. Select **GitHub** and click on **Create a New Connection**.
+1. No menu lateral, clique em **Conections**. 
+2. Selecione **GitHub** e clique em **Create a New Connection**.
 
    ![Manage Connections](./images/manage_connections.png)
 
-3. Fill in the required information and enter the **GitHub Access Token** for authentication.
+3. Preencha as informações necessárias e insira o **GitHub Access Token** para autenticação.
 
    ![Manage Connections Details](./images/manage_connections_details.png)
 
-4. Test the connection by clicking **Test Connection**.  
-5. Click **Save Connection**. After saving, you'll be redirected to the connection screen:
+4. Teste a conexão clicando em **Test Connection**.  
+5. Clique em **Save Connection**. Após salvar, você será redirecionado para a tlea de conexões:
 
    ![Connection Details](./images/connection_details.png)
 
-6. Click on **+ Add Data Scope**, select the desired repositories, and click **Save**.
+6. Clique em **+ Add Data Scope**, selecione o repositório desejado, e clique em  **Save**.
 
-### Creating a Project
+### Criando um proojeto
 
-1. In the side menu, click **Projects** and then **+ New Project**.  
-2. Enter a project name and click **Save**.  
-3. When editing the project, in the **Data Connection** section, click **+ Add a Connection**.  
-4. Select the previously created connection, choose the desired repositories, and click **Save**.  
-5. Adjust the data sync frequency under the **Sync Policy** menu within the project.
+1. No menu lateral, clique em **Projects** e logo após em **+ New Project**.  
+2. Insira o nome do projeto e clique em **Save**.  
+3. Quando estiver editando o projeto, na seção **Data Connection**, clique em **+ Add a Connection**.  
+4. Selecione a conexão previamente criada, escolha o repositório desejado e clique em **Save**.  
+5. Ajuste a frequência de sincronização dos dados no menu **Sync Policy**, dentro do projeto.
 
-Your DevLake environment is now configured and ready to use!
+Seu ambiente DevLake agora está configurado e pronto para uso!
 
-## Data Visualization with Grafana
+## Visualização de dados com Grafana
 
-DevLake uses **Grafana** to display the collected data.
+DevLake usa o **Grafana** para mostrar os dados coletados.
 
-1. Access Grafana at [`http://localhost:4000/grafana`](http://localhost:4000/grafana).  
-2. Use the default credentials **admin:admin** to log in (it's recommended to change the password after the first login).  
-3. Access Grafana’s main dashboard:
+1. Accesse o Grafana em [`http://localhost:4000/grafana`](http://localhost:4000/grafana).  
+2. Use as credenciais padrão **admin:admin** para logar (É recomenddado trocar a senha após o primeiro login).  
+3. Accesse o dashboard principal do Grafana:
 
    ![Grafana dashboards](./images/grafana_dashboards.png)
 
-4. In the side menu, click on **Dashboards** to view the available dashboards.
+4. No menu lateral, clique em **Dashboards** para visualizar os dashboards disponíveis.
 
    Example of a GitHub dashboard:
 
    ![Dashboard GitHub](./images/dashboard_github.png)
 
-## N8N
+### Funcionamento
 
-[N8N](https://github.com/n8n-io/n8n) is an open-source workflow automation platform that gives technical teams the flexibility of code with the speed of no-code.
+Por agora, ainda em desenvolvimento, o DevLake é usado para popular a database (MySQL) vinculando o repositório escolhido (estamos utilizando o Github).
 
-In this repository we will use it to integrate different systems about keeping tabs on the team's workflow.
+Assim podendo tentar fazer com que o n8n, junto de um AI Agent, consiga fazer queries na database com os issues e commits.
 
-We plan to integrate things such as Github repositories, JIRA, ..., with an AI, so the user will be capable to ask questions, about the workflow, through a chatbot and receive answers. 
+#### Supersimplificação do fluxo de execução:
 
-### How it works
+   ![Fluxo de execução](./images/executional_flow_visualization.png)
 
-For now, still in testing purposes, we're using DevLake as the source to populate the database (MySQL) so we can run testes, the execution flow goes like this:
+Desta forma, podemos conectar o n8n ao MySQL e fazer com que a AI Agent possa lidar com os dados. 
 
-   Supersimplification of the execution:
-
-   ![Flow of execution](./images/executional_flow_visualization.png)
-
-Being like this, using N8N we can setup a connection to the MySQL container and make the AI search through its data.
-
-   Example of a n8n rag:
+#### Exemplo de um rag do n8n:
 
    ![N8N example](./images/n8n_example.png)
 
-This enables us to make questions like this:
-
+Esta configuração nos proporciona a capacidade de fazer perguntas como esta:
 
    ![N8N chat example](./images/n8n_chat_example.png)
 
-Its still simple, but we're making progress.
+# Conclusão
+
+Longe da conclusão do projeto
