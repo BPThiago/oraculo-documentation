@@ -34,10 +34,19 @@ This guide provides detailed instructions to set up and use DevLake in your loca
    docker-compose up -d
    ```
 
-   This will start the containers needed to run the DevLake environment.
+   This will start all the containers (DevLake, ConfigUI, Nginx, MySQL, Grafana) needed to run the DevLake environment and N8n which will be used to integrate the AI to search on the MySQL database.
 
 5. Access the DevLake dashboard at [`http://localhost:4000`](http://localhost:4000).  
    - Use the **username** and **password** configured in `docker-compose.yml` to log in.
+
+6. Credentials
+   - Devlake:
+      - **Username**: devlake
+      - **Password**: 123
+   - MySQL
+      - **Database**: lake
+      - **Username**: merico
+      - **Password**: 123 
 
 ## Configuration and Integration
 
@@ -85,8 +94,31 @@ DevLake uses **Grafana** to display the collected data.
 
    ![Dashboard GitHub](./images/dashboard_github.png)
 
-## Conclusion
+## N8N
 
-Your DevLake environment is ready to use! You can now explore and analyze the data collected from the integrated tools.
+[N8N](https://github.com/n8n-io/n8n) is an open-source workflow automation platform that gives technical teams the flexibility of code with the speed of no-code.
 
-For more information, check out the [official documentation](https://devlake.apache.org/docs/GettingStarted).
+In this repository we will use it to integrate differente systems about keeping tabs on the team's workflow. Something a manager would do...
+
+We plan to integrate things such as Github repositories, JIRA, ..., with an AI, so the user will be capable to ask questions, about the workflow, through a chatbot and receive answers. 
+
+### How it works
+
+For now, still in testing purposes, we're using DevLake as the source to populate the database (MySQL) so we can run testes, the execution flow goes like this:
+
+   Supersimplification of the execution:
+
+   ![Flow of execution](./images/executional_flow_visualization.png)
+
+Being like this, using N8N we can setup a connection to the MySQL container and make the AI search through its data.
+
+   Example of a n8n rag:
+
+   ![N8N example](./images/n8n_example.png)
+
+This enables us to make questions like this:
+
+
+   ![N8N chat example](./images/n8n_chat_example.png)
+
+Its still simple, but we're making progress.
