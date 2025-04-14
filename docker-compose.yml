@@ -75,7 +75,20 @@ services:
       - config-ui
       - grafana
 
+  n8n:
+    image: docker.n8n.io/n8nio/n8n
+    ports:
+      - 5678:5678
+    volumes:
+      - n8n_data:/home/node/.n8n
+    restart:
+      always
+    depends_on:
+      - devlake
+      - mysql
+
 volumes:
   mysql-storage:
   grafana-storage:
   devlake-log:
+  n8n_data:
