@@ -16,8 +16,8 @@ This guide provides detailed instructions to set up and use DevLake in your loca
 1. Clone the DevLake repository:
 
    ```sh
-   git clone https://github.com/leds-org/leds-dashboard.git
-   cd leds-dashboard
+   git clone https://github.com/bedrohenr/oraculo.git
+   cd oraculo
    ```
 
 2. Configure the variables in `docker-compose.yml` and `.env` as needed.
