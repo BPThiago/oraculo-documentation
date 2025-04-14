@@ -98,7 +98,7 @@ DevLake uses **Grafana** to display the collected data.
 
 [N8N](https://github.com/n8n-io/n8n) is an open-source workflow automation platform that gives technical teams the flexibility of code with the speed of no-code.
 
-In this repository we will use it to integrate differente systems about keeping tabs on the team's workflow. Something a manager would do...
+In this repository we will use it to integrate different systems about keeping tabs on the team's workflow.
 
 We plan to integrate things such as Github repositories, JIRA, ..., with an AI, so the user will be capable to ask questions, about the workflow, through a chatbot and receive answers. 
 
